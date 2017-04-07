@@ -16,7 +16,6 @@ public class Application {
         Scanner scan = new Scanner(System.in);
 
         int selection = 1;
-//        Customer c1 = new Customer("12345", "joe", 2000);
 
         while (selection != 6) {
             System.out.println("Please enter what you want: \n" +
@@ -70,28 +69,34 @@ public class Application {
                     double deposit;
                     System.out.println("How much do you want to deposit? \n");
                     deposit = (scan.nextDouble());
+
+                    while (deposit > 10000) {
+                        System.out.println("The maximum deposit is 10,000! Please enter a number equal to or less than 10,000!");
+                        deposit = (scan.nextDouble());
+                    }
+
                     c1.changeBalanceD(deposit);
                     System.out.println("Your new balance is: " + c1.getBalance());
                     break;
 
                 case 5:
-//                    System.out.println("How much do you want to withdraw? \n");
-//                    c1.setWithdraw(scan.nextDouble());
-//                    if (c1.getWithdraw()>c1.getBalance()) {
-//                        System.out.println("You have insufficient funds!  Please enter a new amount!");
-//                        c1.setWithdraw(scan.nextDouble());
-//                    }
-//                    c1.changeBalanceW(c1.getWithdraw());
-//                    System.out.println("Your new balance is: " + c1.getBalance());
+
+                    double withdraw;
+                    System.out.println("How much do you want to withdraw? \n");
+                    withdraw = (scan.nextDouble());
+
+                  if (withdraw>c1.getBalance()) {
+                        System.out.println("You have insufficient funds!  Please enter a new amount!");
+                        withdraw = (scan.nextDouble());
+                    }
+                    c1.changeBalanceW(withdraw);
+                    System.out.println("Your new balance is: " + c1.getBalance());
                     break;
+
                 case 6:
                     break;
 
             }
-
-
-
-
 
         }
 
