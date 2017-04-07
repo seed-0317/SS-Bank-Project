@@ -31,26 +31,19 @@ public class Customer {
         this.balance = balance;
     }
 
-    public double getDeposit() {
-        return deposit;
-    }
-
-    public void setDeposit(double deposit) {
-        this.deposit = deposit;
-    }
-
-    public double getWithdraw() {
-        return withdraw;
-    }
-
-    public void setWithdraw(double withdraw) {
-        this.withdraw = withdraw;
-    }
-
     // instance variables
 
+    public Customer(String account, String name, double balance) {
+        this.account = account;
+        this.name = name;
+        this.balance = balance;
+    }
+
+    public Customer() {
+    }
+
     private String account, name;
-    private double balance, deposit, withdraw;
+    private double balance;
 
     // methods
 

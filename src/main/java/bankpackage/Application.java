@@ -9,10 +9,14 @@ public class Application {
 
     public static void main(String[] args) {
 
+        Dao dao = new Dao();
+        Customer c1 = dao.read();
+
+
         Scanner scan = new Scanner(System.in);
 
         int selection = 1;
-        Customer c1 = new Customer();
+//        Customer c1 = new Customer("12345", "joe", 2000);
 
         while (selection != 6) {
             System.out.println("Please enter what you want: \n" +
@@ -62,24 +66,27 @@ public class Application {
                     }
                     break;
                 case 4:
+
+                    double deposit;
                     System.out.println("How much do you want to deposit? \n");
-                    c1.setDeposit(scan.nextDouble());
-                    c1.changeBalanceD(c1.getDeposit());
+                    deposit = (scan.nextDouble());
+                    c1.changeBalanceD(deposit);
                     System.out.println("Your new balance is: " + c1.getBalance());
                     break;
 
                 case 5:
-                    System.out.println("How much do you want to withdraw? \n");
-                    c1.setWithdraw(scan.nextDouble());
-                    if (c1.getWithdraw()>c1.getBalance()) {
-                        System.out.println("You have insufficient funds!  Please enter a new amount!");
-                        c1.setWithdraw(scan.nextDouble());
-                    }
-                    c1.changeBalanceW(c1.getWithdraw());
-                    System.out.println("Your new balance is: " + c1.getBalance());
+//                    System.out.println("How much do you want to withdraw? \n");
+//                    c1.setWithdraw(scan.nextDouble());
+//                    if (c1.getWithdraw()>c1.getBalance()) {
+//                        System.out.println("You have insufficient funds!  Please enter a new amount!");
+//                        c1.setWithdraw(scan.nextDouble());
+//                    }
+//                    c1.changeBalanceW(c1.getWithdraw());
+//                    System.out.println("Your new balance is: " + c1.getBalance());
                     break;
                 case 6:
                     break;
+
             }
 
 
@@ -88,5 +95,6 @@ public class Application {
 
         }
 
+        dao.write(c1);
     }
 }
