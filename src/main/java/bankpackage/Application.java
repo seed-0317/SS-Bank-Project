@@ -48,7 +48,7 @@ public class Application {
                         System.out.println("Your account number is: " + c1.getAccount() + "\n");
                     }
                     else {
-                        System.out.println("We already have your name " + c1.getAccount() +"\n");
+                        System.out.println("We already have your account " + c1.getAccount() +"\n");
                     }
                     break;
                 case 3:
@@ -65,6 +65,7 @@ public class Application {
                     System.out.println("How much do you want to deposit? \n");
                     c1.setDeposit(scan.nextDouble());
                     c1.changeBalanceD(c1.getDeposit());
+                    System.out.println("Your new balance is: " + c1.getBalance());
                     break;
 
                 case 5:
@@ -75,7 +76,10 @@ public class Application {
                         c1.setWithdraw(scan.nextDouble());
                     }
                     c1.changeBalanceW(c1.getWithdraw());
+                    System.out.println("Your new balance is: " + c1.getBalance());
+                    break;
                 case 6:
+                    break;
             }
 
 
