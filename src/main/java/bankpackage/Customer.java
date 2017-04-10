@@ -33,6 +33,29 @@ public class Customer {
 
     // instance variables
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Customer)) return false;
+
+        Customer customer = (Customer) o;
+
+        if (Double.compare(customer.getBalance(), getBalance()) != 0) return false;
+        if (!getAccount().equals(customer.getAccount())) return false;
+        return getName().equals(customer.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = getAccount().hashCode();
+        result = 31 * result + getName().hashCode();
+        temp = Double.doubleToLongBits(getBalance());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
     public Customer(String account, String name, double balance) {
         this.account = account;
         this.name = name;
